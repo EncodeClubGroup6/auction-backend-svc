@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { ethers } from 'ethers';
-import * as TokenJson from '../assets/MyToken.json'
+import * as auctionFactoryJson from '../assets/AuctionFactory.json';
 
 const CONTRACT_ADDRESS = "0x8AE3C9bf30481901ce9B5b8AEAAc214aA67ec81F";
 
@@ -26,7 +26,7 @@ export class AppService {
     this.provider = ethers.getDefaultProvider("goerli");
     this.contract = new ethers.Contract(
       CONTRACT_ADDRESS,
-      TokenJson.abi,
+      auctionFactoryJson.abi,
       this.provider
     );
     this.database = [];
